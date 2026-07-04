@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>В поиске смысла</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/fav5126.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-image: url('{{ url_for('static', filename=bg_path) }}');">
+
+    <div class="site-title">В поиске смысла</div>
+
+    <div class="quote-container">
+        <h1>{{quote.text}}</h1>
+        <h2>— {{quote.author}}</h2>
+        <button class="icon-button" onclick="window.location.reload();">
+    <!-- SVG иконка стрелки -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="site-footer">
+            by labardi | <a href="https://github.com/labardi">GitHub</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+
+    /* Делаем body флекс-контейнером */
+    display: flex;
+    /* Выравниваем дочерний элемент по горизонтали (по центру) */
+    justify-content: center;
+    /* Выравниваем дочерний элемент по вертикали (по центру) */
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.site-title {
+    position: absolute;
+    top: 50px; /* Отступ сверху */
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); /* Темная тень для читаемости */
+    animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.quote-container {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    font-family: 'Playfair Display', sans-serif;
+    color: #ffffff;
+    padding: 40px 60px; /* Даем воздуху внутри блока */
+    border: 1px solid #e6e1da; /* Тонкая, изящная рамка вместо массивной */
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.icon-button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
+    color: #ffffff; /* Цвет самой иконки */
+    border-radius: 50%; /* Делаем ее круглой */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0; /* Отступ сверху и центрирование */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавная анимация */
+}
+
+.icon-button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Слегка подсвечиваем при наведении */
+    border-color: #ffffff;
+    transform: translateX(5px); /* Легкий сдвиг вправо при наведении */
+}
+
+h2 {
+    font-size: 20px;
+    padding: 15px 0 50px 0;
+    font-color: #555555;
+}
+
+.site-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.site-footer a {
+    color: #ffffff;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+
+}
+
+/* Создаем сценарий анимации (от прозрачного к видимому) */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
