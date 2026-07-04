@@ -5,9 +5,11 @@ import os
 
 app = Flask(__name__)
 
-quotes_list = json.loads(open('quotes.json', encoding='utf-8').read())['quotes']
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+json_path = os.path.join(BASE_DIR, 'quotes.json')
+quotes_list = json.loads(open(json_path, encoding='utf-8').read())['quotes']
 
-image_path = 'static/images/background'
+image_path = os.path.join(BASE_DIR, 'static', 'images', 'background')
 bg_list = os.listdir(image_path)
 
 
