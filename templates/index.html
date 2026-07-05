@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>В поиске смысла</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/fav5126.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=2) }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +18,8 @@
     <div class="site-title">В поиске смысла</div>
 
     <div class="quote-container">
-        <h1>{{quote.text}}</h1>
-        <h2>— {{quote.author}}</h2>
+        <h1 class="quote-text">{{quote.text}}</h1>
+        <h2 class="quote-author">— {{quote.author}}</h2>
         <button class="icon-button" onclick="window.location.reload();">
     <!-- SVG иконка стрелки -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

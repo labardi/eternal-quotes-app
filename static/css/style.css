@@ -1,6 +1,7 @@
 body {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    overflow-x: hidden;
     background-color: #ffffff;
 
     /* Делаем body флекс-контейнером */
@@ -42,6 +43,18 @@ body {
     animation: fadeIn 1.2s ease-in-out forwards;
 }
 
+.quote-text {
+    font-size: 32px;
+    margin: 0;
+    margin-bottom: 35px; /* Точечно отталкиваем автора вниз */
+}
+
+.quote-author {
+    font-size: 20px;
+    margin: 0; /* Обязательно возвращаем сброс! */
+    margin-bottom: 50px; /* Делаем отступ до кнопки действительно большим */
+}
+
 .icon-button {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
@@ -52,7 +65,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto 0; /* Отступ сверху и центрирование */
+    margin: 0 auto 0 auto;
     cursor: pointer;
     transition: all 0.3s ease; /* Плавная анимация */
 }
@@ -63,11 +76,6 @@ body {
     transform: translateX(5px); /* Легкий сдвиг вправо при наведении */
 }
 
-h2 {
-    font-size: 20px;
-    padding: 15px 0 50px 0;
-    font-color: #555555;
-}
 
 .site-footer {
     position: absolute;
@@ -91,4 +99,48 @@ h2 {
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+/* Мобильная версия (экраны до 768px шириной) */
+@media (max-width: 768px) {
+
+    /* 1. Ремонтируем стекло */
+    .quote-container {
+        width: 85%;
+        min-height: auto;
+
+        /* Перебиваем десктопные 60px по бокам на аккуратные 20px */
+        padding: 40px 20px;
+
+        /* Делаем само стекло умным контейнером, чтобы текст внутри не выпадал */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 2. Увеличиваем кнопку */
+    .icon-button {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 0 auto;
+    }
+
+    /* 3. Фиксируем шрифты, чтобы они не зависели от длины цитаты */
+    .quote-text {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .quote-author {
+        font-size: 16px;
+    }
+
+    .site-title {
+        font-size: 16px;
+    }
+
+    .site-footer {
+        font-size: 12px;
+    }
 }
