@@ -144,3 +144,35 @@ body {
         font-size: 12px;
     }
 }
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .site-title {
+        display: none;
+    }
+
+    .site-footer {
+        display: none;
+    }
+
+    .quote-container {
+        min-height: auto;
+        padding: 10px 10px;
+        width: 80%;
+    }
+
+    .quote-text {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .quote-author {
+       font-size: 16px;
+       margin-bottom: 25px;
+    }
+
+    .icon-button {
+        margin-top: 1px;
+    }
+
+}
