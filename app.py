@@ -12,6 +12,8 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'default_fallback_key_for_dev')
 app.permanent_session_lifetime = timedelta(days=30)
 
+print(f"--- AAAAAAAAAAAAAAAAAA: {app.secret_key[:3]}***{app.secret_key[-3:]} ---")
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 json_path = os.path.join(BASE_DIR, 'quotes.json')
 quotes_list = json.loads(open(json_path, encoding='utf-8').read())['quotes']
