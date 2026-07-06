@@ -3,6 +3,10 @@ from random import choice
 import json
 import os
 from datetime import timedelta
+from dotenv import load_dotenv # Добавляем импорт
+
+# Командуем Python найти файл .env в этой же папке и прочитать его
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'default_fallback_key_for_dev')
