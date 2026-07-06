@@ -14,9 +14,6 @@ load_dotenv(os.path.join(basedir, '.env'))
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'default_fallback_key_for_dev')
 
-# Оставляем принт для финальной проверки
-print(f"--- ACTIVE SECRET KEY: {app.secret_key[:5]}***{app.secret_key[-5:]} ---")
-
 json_path = os.path.join(basedir, 'quotes.json')
 quotes_list = json.loads(open(json_path, encoding='utf-8').read())['quotes']
 
