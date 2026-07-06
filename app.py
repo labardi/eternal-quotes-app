@@ -5,22 +5,25 @@ import os
 from datetime import timedelta
 from dotenv import load_dotenv # Добавляем импорт
 
-# Командуем Python найти файл .env в этой же папке и прочитать его
-load_dotenv()
+# 1. Вычисляем абсолютный путь к папке, в которой лежит этот самый файл app.py
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+# 2. Жестко приказываем искать .env именно в этой папке
+load_dotenv(os.path.join(basedir, '.env'))
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'default_fallback_key_for_dev')
-app.permanent_session_lifetime = timedelta(days=30)
 
-print(f"--- AAAAAAAAAAAAAAAAAA: {app.secret_key[:3]}***{app.secret_key[-3:]} ---")
+# Оставляем принт для финальной проверки
+print(f"--- ACTIVE SECRET KEY: {app.secret_key[:5]}***{app.secret_key[-5:]} ---")
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-json_path = os.path.join(BASE_DIR, 'quotes.json')
+json_path = os.path.join(basedir, 'quotes.json')
 quotes_list = json.loads(open(json_path, encoding='utf-8').read())['quotes']
 
-image_path = os.path.join(BASE_DIR, 'static', 'images', 'background')
+image_path = os.path.join(basedir, 'static', 'images', 'background')
 bg_list = os.listdir(image_path)
 
+app.permanent_session_lifetime = timedelta(days=30)
 
 @app.route("/")
 def print_quote():
