@@ -24,13 +24,15 @@ app.permanent_session_lifetime = timedelta(days=30)
 
 @app.route("/")
 def print_quote():
+    session.permanent = True
+
     # 1. Инициализация
     if 'history' not in session:
         session['history'] = []
-        session.permanent = True
 
     # 2. Высчитываем лимит один раз и используем безопасное сравнение
     max_history_length = int(len(quotes_list) * 0.5)
+    max_background_length = int(len(bg_list) * 0.5)
 
     # Если базу урезали, и история стала больше базы, обрезаем ее с запасом
     while len(session['history']) >= max_history_length:
@@ -46,7 +48,34 @@ def print_quote():
 
     # 4. Сохранение результата
     session['history'].append(quote_id)
-    session.modified = True
 
-    random_bg_path = 'images/background/' + choice(bg_list)
+    if 'background' not in session:
+        session['background'] = []
+    if not session['background']:  # пустой список
+        random_background = choice(bg_list)
+    else:
+        random_background = session['background'][-1]
+
+    if 'counter_list' not in session:
+        session['counter_list'] = []
+
+    session['counter_list'].append(quote_id)
+
+    while len(session['background']) > max_background_length:
+        session['background'].pop(0)
+
+    if len(session['counter_list']) % 5 == 0:
+        session['counter_list'] = []
+        while random_background in session['background']:
+            random_background = choice(bg_list)
+
+
+    if session['background']:
+        if session['background'][-1] != random_background:
+            session['background'].append(random_background)
+    else:
+        session['background'].append(random_background)
+
+    session.modified = True
+    random_bg_path = 'images/background/' + random_background
     return render_template('index.html', quote=random_quote, bg_path=random_bg_path)

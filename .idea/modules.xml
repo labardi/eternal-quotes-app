@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/QuoteGenerator.iml" filepath="$PROJECT_DIR$/.idea/QuoteGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/eternal-quotes-app.iml" filepath="$PROJECT_DIR$/.idea/eternal-quotes-app.iml" />
     </modules>
   </component>
 </project>
