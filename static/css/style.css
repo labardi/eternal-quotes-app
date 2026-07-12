@@ -110,6 +110,34 @@ body {
     z-index: -1;
 }
 
+.bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.active {
+    opacity: 1;
+}
+
+.fade-in-text {
+    animation: fadeIn 1s ease-in-out;
+}
+
 /* Мобильная версия (экраны до 768px шириной) */
 @media (max-width: 768px) {
 

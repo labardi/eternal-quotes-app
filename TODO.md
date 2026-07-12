@@ -7,9 +7,30 @@
 - [x] Создать алгоритм для выбора фонового изображения
 - [x] Облегчить фоновые изображения
 - [x] Попробовать протестировать сайт на производительность
+---
+- [ ] Перейти на SPA с простой перезагрузки:
+  - [ ] Изменить get_next_background, чтобы он выдавал следующее изображение: просто добавить новое условие при % 5 == 1 и вывод двух словарей ссылок
+---
 - [ ] Подключить Яндекс.Метрику или Google Metrics
-
 ## Statistics
+
+Отчет от 9 июля после перехода на Cloudinary от PageSpeed Insights:
+
+Данные из теста для мобильных устройств:
+- First Contentful Paint: 2,7с
+- Largest Contentful Paint: Error! NO_LCP
+- Total Blocking Time: Error! NO_LCP
+- Cumulative Layout Shift: 0
+- Speed Index: 4,9 сек
+
+Для пк:
+- First Contentful Paint: 0,7с
+- Largest Contentful Paint: Error! NO_LCP 
+- Total Blocking Time: Error! NO_LCP
+- Cumulative Layout Shift: 0
+- Speed Index: 2,4 сек.
+
+---
 
 Отчет от 6 июля от PageSpeed Insights:
 

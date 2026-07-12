@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/fav512.png', v=1) }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=9) }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -15,23 +14,34 @@
 
 <body>
 
-    <img
-    class="bg"
-    src="{{ bg_urls }}"
-    srcset="
-        {{ bg_urls['768'] }} 768w,
-        {{ bg_urls['1280'] }} 1280w,
-        {{ bg_urls['1920'] }} 1920w,
-        {{ bg_urls['2560'] }} 2560w"
-    sizes="100vw"
-    alt="">
+    <div class="bg-wrapper">
+        <img class="bg-layer active"
+             src="{{ current_bg_urls['2560'] }}"
+             srcset="
+            {{ current_bg_urls['768'] }} 768w,
+            {{ current_bg_urls['1280'] }} 1280w,
+            {{ current_bg_urls['1920'] }} 1920w,
+            {{ current_bg_urls['2560'] }} 2560w"
+            sizes="100vw"
+            alt="">
+
+        <img class="bg-layer"
+             src="{{ next_bg_urls['2560'] }}"
+             srcset="
+            {{ next_bg_urls['768'] }} 768w,
+            {{ next_bg_urls['1280'] }} 1280w,
+            {{ next_bg_urls['1920'] }} 1920w,
+            {{ next_bg_urls['2560'] }} 2560w"
+            sizes="100vw"
+            alt="">
+    </div>
 
     <div class="site-title">В поиске смысла</div>
 
     <div class="quote-container">
-        <h1 class="quote-text">{{quote.text}}</h1>
-        <h2 class="quote-author">— {{quote.author}}</h2>
-        <button class="icon-button" onclick="window.location.reload();">
+        <h1 class="quote-text fade-in-text">{{quote.text}}</h1>
+        <h2 class="quote-author fade-in-text">— {{quote.author}}</h2>
+        <button class="icon-button">
     <!-- SVG иконка стрелки -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"></path>
@@ -44,5 +54,6 @@
             by labardi | <a href="https://github.com/labardi">GitHub</a>
     </div>
 
+    <script src="{{ url_for('static', filename='js/script.js', v=1) }}"></script>
 </body>
 </html>
