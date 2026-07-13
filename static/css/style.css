@@ -36,11 +36,12 @@ body {
     font-family: 'Playfair Display', sans-serif;
     color: #ffffff;
     padding: 40px 60px; /* Даем воздуху внутри блока */
-    border: 1px solid #e6e1da; /* Тонкая, изящная рамка вместо массивной */
+    border: 1px solid #e6e1da;
     text-align: center;
     width: 90%;
     max-width: 800px;
     animation: fadeIn 1.2s ease-in-out forwards;
+    transition: all 0.4s ease-in-out;    /* не работает */
 }
 
 .quote-text {
@@ -128,6 +129,7 @@ body {
     object-fit: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    filter: brightness(0.8);
 }
 
 .active {
